@@ -13,7 +13,10 @@ while(true)
         System.Console.WriteLine("YOUR KING DEMANDS YOU TO STATE YOUR NAME!");
         player = Console.ReadLine();
     }
-System.Console.WriteLine("Well then peaseant prepare for battle ");
+System.Console.WriteLine("Well then peaseant prepare for battle.");
+System.Console.WriteLine("You have been placed against the weakest in this colosseum and you only way to freedom is to fight for it.");
 
+
+while()
 
 Console.ReadLine();
