@@ -10,6 +10,8 @@ public class Player
         int Dmg = new Random().Next(BaseDmg/2,BaseDmg);
         enemy.hp -= Dmg;
         System.Console.WriteLine($"{name} deals {Dmg} damage to the opponent.");
+
+        enemy.hp = Math.Max(0, enemy.hp);
     }
 
     public void Block(Player player, Enemy enemy)
@@ -21,7 +23,7 @@ public class Player
 
     public string GetName(Player player)
     {
-        string name = player.name;
+        string name = Console.ReadLine();
         while (string.IsNullOrEmpty(name))
         {
             System.Console.WriteLine("YOUR KING DEMANDS YOU TO STATE YOUR NAME!");

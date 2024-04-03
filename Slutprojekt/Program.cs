@@ -6,7 +6,7 @@ String Choise = "";
 System.Console.WriteLine("Welcome to the colosseum");
 System.Console.WriteLine("You have been summoned to participate in the yearly fighting tournament");
 System.Console.WriteLine("State your name peaseant");
-String playername = Console.ReadLine();
+// String playername = Console.ReadLine();
 
 player.GetName(player);
 // while(true)
@@ -27,7 +27,7 @@ System.Console.WriteLine("You have been placed against the weakest in this colos
 
 
 
-while(player.hp >= 0 || enemy.hp >= 0)
+while(player.hp > 0 && enemy.hp > 0)
 {
     System.Console.WriteLine("Challenger make your move.");
     System.Console.WriteLine("1. Attack");
@@ -42,6 +42,23 @@ while(player.hp >= 0 || enemy.hp >= 0)
     {
         player.Block(player, enemy);
     }
+
+    System.Console.WriteLine($"{enemy.hp}");
+
+}
+
+if (enemy.hp == 0)
+{
+    System.Console.WriteLine("Enemy killed in action");
+    Thread.Sleep(500);
+    System.Console.WriteLine("Well done peseant, hope you're ready for the next battle.");
+    System.Console.WriteLine("But as your generous king I will reward you with ONE piece of equipment.");
+}
+else if (player.hp == 0)
+{
+    System.Console.WriteLine("I knew you didn't have it in you");
+    Thread.Sleep(500);
+    System.Console.WriteLine("Farewell peseant");
 }
 
 Console.ReadLine();
