@@ -5,11 +5,18 @@ public class Player
 
     public int BaseDmg = 10;
 
-    public virtual void Attack()
+    public void Attack(Enemy enemy)
     {
         int Dmg = new Random().Next(BaseDmg/2,BaseDmg);
         enemy.hp -= Dmg;
         System.Console.WriteLine($"{name} deals {Dmg} damage to the opponent.");
+    }
+
+    public void Block(Player player, Enemy enemy)
+    {
+        int DmgRed = enemy.BaseDmg2/2;
+        System.Console.WriteLine($"{name} chooses to block and reduces to incomming damage");
+        player.hp -= DmgRed;
     }
 
     public string GetName(Player player)
@@ -27,5 +34,5 @@ public class Player
 public class Enemy
 {
     public int hp = 30;
-    public int BaseDmg = 5;
+    public int BaseDmg2 = 5;
 }
