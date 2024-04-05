@@ -1,7 +1,7 @@
 ﻿Player player = new Player();
 Enemy enemy = new Enemy();
 String Choise = "";
-Random generator = new Random();
+// Random generator = new Random();
 
 
 System.Console.WriteLine("Welcome to the colosseum");
@@ -24,6 +24,8 @@ player.GetName(player);
 // }
 System.Console.WriteLine("Well then peaseant prepare for battle.");
 System.Console.WriteLine("You have been placed against the weakest in this colosseum and you only way to freedom is to fight for it.");
+System.Console.WriteLine("Now fight");
+System.Console.WriteLine("Against the one who holds the title \" The Weakest Hunter \"");
 
 
 
@@ -51,8 +53,9 @@ while(player.hp > 0 && enemy.hp > 0)
             System.Console.WriteLine("Press 2 to block your opponents attack");
         }
 
-        int Move = generator.Next(1,2);
-        if (Move == 1)
+        // int Move = generator.Next(1,2);
+        int qwert = enemy.Move();
+        if (qwert == 1)
         {
             enemy.Attack(player);
         }

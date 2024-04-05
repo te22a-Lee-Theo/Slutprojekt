@@ -1,3 +1,7 @@
+using System.Linq.Expressions;
+using System.Net;
+using System.Runtime.CompilerServices;
+
 public class Player
 {
     public string Name;
@@ -16,15 +20,23 @@ public class Player
 
     public void Block(Player player, Enemy enemy)
     {
-        int DmgRed = enemy.BaseDmg2/2;
+        int DmgRed = enemy.BaseDmg/2;
         System.Console.WriteLine($"{Name} chooses to block and reduces to incomming damage");
-        player.hp -= enemy.BaseDmg2 -DmgRed;
+        int qwert = enemy.Move();
+        if ( qwert == 1)
+        {
+            player.hp -= DmgRed;
+        }
+        else
+        {
+            System.Console.WriteLine("Both chose to stand down and no attack was made");
+        }
     }
 
     public string GetName(Player player)
     {
         string Name = Console.ReadLine();
-        while (string.IsNullOrEmpty(Name))
+        while (string.IsNullOrEmpty(Name))   //Lånad från internet
         {
             System.Console.WriteLine("YOUR KING DEMANDS YOU TO STATE YOUR NAME!");
             Name = Console.ReadLine();
@@ -36,14 +48,30 @@ public class Player
 public class Enemy
 {
     public int hp = 30;
-    public int BaseDmg2 = 5;
+    public int BaseDmg = 5;
 
     public void Attack(Player player)
     {
-        int Dmg = BaseDmg2;
+        int Dmg = BaseDmg;
         player.hp -= Dmg;
         System.Console.WriteLine($"The enemy deals {Dmg} damage to the challenger");
 
         player.hp = Math.Max(0, player.hp);
+    }
+
+    public void Block (Player player)
+    {
+        int DmgDown = player.BaseDmg/2;
+
+        if ()
+        System.Console.WriteLine($"The enemy blocks the attack but still suffers {DmgDown} Damage");
+
+    }
+
+    public int Move()
+    {
+        Random generator = new Random();
+        int Rand = generator.Next(1,2);
+        return Rand;
     }
 }
