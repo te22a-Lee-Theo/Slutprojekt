@@ -1,6 +1,7 @@
 ﻿Player player = new Player();
 Enemy enemy = new Enemy();
 String Choise = "";
+Random generator = new Random();
 
 
 System.Console.WriteLine("Welcome to the colosseum");
@@ -32,18 +33,37 @@ while(player.hp > 0 && enemy.hp > 0)
     System.Console.WriteLine("Challenger make your move.");
     System.Console.WriteLine("1. Attack");
     System.Console.WriteLine("2. block");
-    Choise = Console.ReadLine();
-    int Action = int.Parse(Choise);
-    if (Action == 1)
-    {
-        player.Attack(enemy);
-    }
-    else if (Action == 2)
-    {
-        player.Block(player, enemy);
-    }
+    System.Console.WriteLine("Type the number of the action you want to make");
+    
+        Choise = Console.ReadLine();
+        int Action = int.Parse(Choise);
+        if (Action == 1)
+        {
+            player.Attack(enemy);
+        }
+        else if (Action == 2)
+        {
+            player.Block(player, enemy);
+        }
+        else{
+            System.Console.WriteLine("Please choose one of following actions");
+            System.Console.WriteLine("Press 1 to attack your opponent");
+            System.Console.WriteLine("Press 2 to block your opponents attack");
+        }
 
-    System.Console.WriteLine($"{enemy.hp}");
+        int Move = generator.Next(1,2);
+        if (Move == 1)
+        {
+            enemy.Attack(player);
+        }
+        // else if (Move == 2)
+        // {
+        //     enemy.Block(enemy, player);
+        // }
+        
+
+
+    System.Console.WriteLine($"{enemy.hp}, {player.hp}");
 
 }
 
