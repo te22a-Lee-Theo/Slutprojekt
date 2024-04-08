@@ -25,7 +25,7 @@ public class Player
         int qwert = enemy.Move();
         if ( qwert == 1)
         {
-            player.hp -= DmgRed;
+            player.hp += DmgRed;
         }
         else
         {
@@ -35,13 +35,19 @@ public class Player
 
     public string GetName(Player player)
     {
-        string Name = Console.ReadLine();
+        Name = Console.ReadLine();
         while (string.IsNullOrEmpty(Name))   //Lånad från internet
         {
             System.Console.WriteLine("YOUR KING DEMANDS YOU TO STATE YOUR NAME!");
             Name = Console.ReadLine();
         }
         return Name;
+    }
+
+    public static string Choise(Player player)
+    {
+        string Choise = Console.ReadLine();
+        return Choise;
     }
 }
 
@@ -59,12 +65,23 @@ public class Enemy
         player.hp = Math.Max(0, player.hp);
     }
 
-    public void Block (Player player)
+    public void Block (Player player, Enemy enemy)
     {
+        string wasd = player.Choise();
+        int Action = int.Parse(wasd);
         int DmgDown = player.BaseDmg/2;
 
-        if ()
-        System.Console.WriteLine($"The enemy blocks the attack but still suffers {DmgDown} Damage");
+        if (Action == 1)
+        {
+            System.Console.WriteLine($"The enemy blocks the attack but still suffers {DmgDown} Damage");
+            int reduction = BaseDmg/2;
+            enemy.hp += reduction;
+        }
+        else
+        {
+            System.Console.WriteLine("The enemy chooses to block but no attack was thrown");
+        }
+       
 
     }
 

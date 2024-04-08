@@ -1,13 +1,9 @@
 ﻿Player player = new Player();
 Enemy enemy = new Enemy();
-String Choise = "";
-// Random generator = new Random();
-
 
 System.Console.WriteLine("Welcome to the colosseum");
 System.Console.WriteLine("You have been summoned to participate in the yearly fighting tournament");
 System.Console.WriteLine("State your name peaseant");
-// String playername = Console.ReadLine();
 
 player.GetName(player);
 // while(true)
@@ -37,7 +33,7 @@ while(player.hp > 0 && enemy.hp > 0)
     System.Console.WriteLine("2. block");
     System.Console.WriteLine("Type the number of the action you want to make");
     
-        Choise = Console.ReadLine();
+        string Choise = Console.ReadLine();
         int Action = int.Parse(Choise);
         if (Action == 1)
         {
@@ -53,16 +49,15 @@ while(player.hp > 0 && enemy.hp > 0)
             System.Console.WriteLine("Press 2 to block your opponents attack");
         }
 
-        // int Move = generator.Next(1,2);
         int qwert = enemy.Move();
         if (qwert == 1)
         {
             enemy.Attack(player);
         }
-        // else if (Move == 2)
-        // {
-        //     enemy.Block(enemy, player);
-        // }
+        else if (qwert == 2)
+        {
+            enemy.Block(player, enemy);
+        }
         
 
 
