@@ -27,7 +27,7 @@ public class Player
         {
             player.hp += DmgRed;
         }
-        else
+        else if ( qwert == 2)
         {
             System.Console.WriteLine("Both chose to stand down and no attack was made");
         }
@@ -46,8 +46,7 @@ public class Player
 
     public static string Choise(Player player)
     {
-        string Choise = Console.ReadLine();
-        return Choise;
+        return Console.ReadLine();
     }
 }
 
@@ -67,8 +66,9 @@ public class Enemy
 
     public void Block (Player player, Enemy enemy)
     {
-        string wasd = player.Choise();
-        int Action = int.Parse(wasd);
+        string wasd = Player.Choise(player);
+        int Action;
+        int.TryParse(wasd, out Action);
         int DmgDown = player.BaseDmg/2;
 
         if (Action == 1)
@@ -88,7 +88,7 @@ public class Enemy
     public int Move()
     {
         Random generator = new Random();
-        int Rand = generator.Next(1,2);
+        int Rand = generator.Next(1,3);
         return Rand;
     }
 }
