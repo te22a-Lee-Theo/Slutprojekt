@@ -38,6 +38,7 @@ while(player.hp > 0 && enemy.hp > 0)
         string Choise = Player.Choise(player);
         int Action;
         int.TryParse(Choise, out Action);
+        int qwert = enemy.Move();
         if (Action == 1)
         {
             player.Attack(enemy);
@@ -52,14 +53,14 @@ while(player.hp > 0 && enemy.hp > 0)
             System.Console.WriteLine("Press 2 to block your opponents attack");
         }
 
-        int qwert = enemy.Move();
+        
         if (qwert == 1)
         {
-            enemy.Attack(player);
+            enemy.Block(enemy, player);
         }
         else if (qwert == 2)
         {
-            enemy.Block(player, enemy);
+            enemy.Attack(player);
         }
         
 

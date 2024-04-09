@@ -46,7 +46,8 @@ public class Player
 
     public static string Choise(Player player)
     {
-        return Console.ReadLine();
+        string hello = Console.ReadLine();
+        return hello;
     }
 }
 
@@ -64,7 +65,7 @@ public class Enemy
         player.hp = Math.Max(0, player.hp);
     }
 
-    public void Block (Player player, Enemy enemy)
+    public void Block (Enemy enemy, Player player)
     {
         string wasd = Player.Choise(player);
         int Action;
@@ -74,10 +75,10 @@ public class Enemy
         if (Action == 1)
         {
             System.Console.WriteLine($"The enemy blocks the attack but still suffers {DmgDown} Damage");
-            int reduction = BaseDmg/2;
-            enemy.hp += reduction;
+            // int reduction = BaseDmg/2;
+            enemy.hp += DmgDown;  //reduction;
         }
-        else
+        else if (Action == 2)
         {
             System.Console.WriteLine("The enemy chooses to block but no attack was thrown");
         }
