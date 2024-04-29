@@ -33,8 +33,7 @@ while(player.hp > 0 && enemy.hp > 0)
     System.Console.WriteLine("2. block");
     System.Console.WriteLine("Type the number of the action you want to make");
     
-        // string Choise = Console.ReadLine();
-        // int Action = int.Parse(Choise);
+
         string Choise = Player.Choise(player);
         int Action;
         int.TryParse(Choise, out Action);

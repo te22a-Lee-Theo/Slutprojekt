@@ -75,8 +75,7 @@ public class Enemy
         if (Action == 1)
         {
             System.Console.WriteLine($"The enemy blocks the attack but still suffers {DmgDown} Damage");
-            // int reduction = BaseDmg/2;
-            enemy.hp += DmgDown;  //reduction;
+            enemy.hp += DmgDown;
         }
         else if (Action == 2)
         {
